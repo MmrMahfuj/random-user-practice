@@ -18,9 +18,38 @@ function displayUser(users) {
             <span>Hi, My Name Is</span>
             <h2>${user.name.title} ${user.name.first} ${user.name.last}</h2>
             <p>
-            ${user.email}
+            Email: ${user.email}
             </p>
-            <button class="bt-color border rounded">Details</button>
+            <ul id="detail-list" class="text-start d-none">
+                <li>
+                    Cell: ${user.cell}
+                </li>
+                <li>
+                    Birth Day: ${user.dob.date}, Age: ${user.dob.age}, Gender: ${user.gender}
+                </li>
+                <li>
+                    City: ${user.location.city}
+                </li>
+                <li>
+                    ${user.location.coordinates.latitude}, ${user.location.coordinates.longitude}
+                </li>
+                <li>
+                    Country: ${user.location.country}
+                </li>
+                <li>
+                    Post Code: ${user.location.postcode}
+                </li>
+                <li>
+                    State: ${user.location.state}
+                </li>
+                <li>
+                    Street Number: ${user.location.street.number}, Street Name: ${user.location.street.name}
+                </li>
+                <li>
+                    Phone: ${user.phone}
+                </li>
+    </ul>
+            <button class="bt-color border rounded" onclick="detailsDisplay()">Details</button>
             <button class="bt-color border rounded" onclick="loadData()">Next</button>
         `;
         randomUserContainer.appendChild(div);
@@ -29,8 +58,10 @@ function displayUser(users) {
 }
 
 
-
-
+const detailsDisplay = () => {
+    const detailList = document.getElementById('detail-list');
+    detailList.classList.remove('d-none');
+}
 
 
 
